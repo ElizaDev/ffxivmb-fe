@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Final Fantasy XIV CrowdSourced Market Board and Inventory Management.">
+    <meta name="keywords" content="FFXIV, MarketBoard, Marketboard, Market Board, Market, Items, Recipes, Leves, Transmutation, Players, Inventory, GuildLeves, Crafting, Carpenter, Alchemist.">
+    <title>FFXIV MarketBoard - FFXIVMarket</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="custom.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-dark text-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="#" class="navbar-brand">FFXIVMarket</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a  class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a  class="nav-link" href="/CraftingLists">CraftingLists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/About">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Downloads">Downloads</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Leves/Exodus">Leve Lists</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Transmutation/">Transmutation Tool</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Gathering/">Gatherers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Recipes/">Recipes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/PublicAPI/">API</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/"><img src="https://ffxivmb.com/images/us.png" height="12">US English</a>
+                </li>
+                <li class="nav-item">
+                        <div>
+                            <a class="nav-link" title="Support me on ko-fi.com" href="http://ko-fi.com/purveyor" target="_blank"> 
+                                <span>
+                                    <img class="kofi" src="https://ko-fi.com/img/cuplogo.svg">
+                                    Buy Me a Coffee
+                                </span>
+                            </a>
+                        </div>
+                </li>
+                <li class="nav-item">
+                    <div style="margin-top:12px"> 
+                        <a class="cxVZwU" type="button" style="background-color: rgb(250, 118, 100);color: rgb(255, 255, 255); padding:6px" href="https://www.patreon.com/bePatron?u=10361611">Become a Patron!</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <div class="supportContainer">
+            <div class="Message" style="box-sizing: border-box; font-weight: 600; align-items: center; padding: 1vh; margin-bottom: 1vh; color: white; opacity: 0.9375; margin-top: 1px; background-color: rgb(102, 102, 106); border-radius: 5px; text-align: center; ">
+                <span>With the market sense app you can inspect and search through your Inventory. It's an easy way to make space,
+                    organize yourself and find out if you have any useful items you forgot about.Also don't forget to check out how to get
+                    Sales Notifications sent to your discord account by clicking <a href="https://discord.gg/EhgPBDr">here</a>.
+                </span>
+            </div>
+            <div style="color:white">
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div id="intronote" class="supportContainer">
+                <p style="margin:5px; line-height:20px">Welcome to FFXIVMB, fansite for crowdsourcing MarketBoard data.
+                    Our users send us the marketboard data with a downloadable app. Click our <a href="/About">About</a>
+                    and <a href="/Downloads">Downloads</a> to find out more. <a id="close"></a></p>
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div>
+                        <h3 style="text-align:left">FFXIV Market Board Prices for Coeurl</h3>
+                        <p>
+                            The MarketSense app allows you to share price data as you get it from the marketboard and
+                            to see and search your inventory and your retainer's inventory online, you will receive a
+                            private link on the app where you can check it out and learn more. <br>
+                            <span>Join the discord to learn how you can get discord notifications whenever you sell an
+                                item, link your app to the site and unlock updating data through the site fast and
+                                conveniently.</span>
+                        </p>
+                        <a class="btn-sm btn-primary" style="position: center;" href="https://ffxivmb.com/GetDownload"
+                            target="_blank" onclick="ga('send','event','Coeurl','DownloadClick','Coeurl');">Click here
+                            to download.</a>
+                        <a id="discordButton" href="https://discord.gg/8XBMC9v" class="btn-sm btn-primary" target="_blank">Join
+                            our Discord</a>
+                        <input type="button" value="Confused?" onclick="tour.restart()">
+                        <div id="serverselectdiv" class="form-group-sm" style="margin-top:10px">
+                            <form method="post" action="/Coeurl?handler=ServerSelection">
+                                Select your server.
+                                <select id="SelectedServer" name="SelectedServer">
+                                    <option>Coeurl</option>
+                                    <option value="Adamantoise">Adamantoise</option>
+                                    <option value="Aegis">Aegis</option>
+                                    <option value="Alexander">Alexander</option>
+                                    <option value="Anima">Anima</option>
+                                    <option value="Asura">Asura</option>
+                                    <option value="Atomos">Atomos</option>
+                                    <option value="Bahamut">Bahamut</option>
+                                    <option value="Balmung">Balmung</option>
+                                    <option value="Behemoth">Behemoth</option>
+                                    <option value="Belias">Belias</option>
+                                    <option value="Brynhildr">Brynhildr</option>
+                                    <option value="Cactuar">Cactuar</option>
+                                    <option value="Carbuncle">Carbuncle</option>
+                                    <option value="Cerberus">Cerberus</option>
+                                    <option value="Chocobo">Chocobo</option>
+                                    <option value="Coeurl">Coeurl</option>
+                                    <option value="Diabolos">Diabolos</option>
+                                    <option value="Durandal">Durandal</option>
+                                    <option value="Excalibur">Excalibur</option>
+                                    <option value="Exodus">Exodus</option>
+                                    <option value="Faerie">Faerie</option>
+                                    <option value="Famfrit">Famfrit</option>
+                                    <option value="Fenrir">Fenrir</option>
+                                    <option value="Garuda">Garuda</option>
+                                    <option value="Gilgamesh">Gilgamesh</option>
+                                    <option value="Goblin">Goblin</option>
+                                    <option value="Gungnir">Gungnir</option>
+                                    <option value="Hades">Hades</option>
+                                    <option value="Hyperion">Hyperion</option>
+                                    <option value="Ifrit">Ifrit</option>
+                                    <option value="Ixion">Ixion</option>
+                                    <option value="Jenova">Jenova</option>
+                                    <option value="Kujata">Kujata</option>
+                                    <option value="Lamia">Lamia</option>
+                                    <option value="Leviathan">Leviathan</option>
+                                    <option value="Lich">Lich</option>
+                                    <option value="Louisoix">Louisoix</option>
+                                    <option value="Malboro">Malboro</option>
+                                    <option value="Mandragora">Mandragora</option>
+                                    <option value="Masamune">Masamune</option>
+                                    <option value="Mateus">Mateus</option>
+                                    <option value="Midgardsormr">Midgardsormr</option>
+                                    <option value="Moogle">Moogle</option>
+                                    <option value="Odin">Odin</option>
+                                    <option value="Omega">Omega</option>
+                                    <option value="Pandaemonium">Pandaemonium</option>
+                                    <option value="Phoenix">Phoenix</option>
+                                    <option value="Ragnarok">Ragnarok</option>
+                                    <option value="Ramuh">Ramuh</option>
+                                    <option value="Ridill">Ridill</option>
+                                    <option value="Sargatanas">Sargatanas</option>
+                                    <option value="Shinryu">Shinryu</option>
+                                    <option value="Shiva">Shiva</option>
+                                    <option value="Siren">Siren</option>
+                                    <option value="Tiamat">Tiamat</option>
+                                    <option value="Titan">Titan</option>
+                                    <option value="Tonberry">Tonberry</option>
+                                    <option value="Typhon">Typhon</option>
+                                    <option value="Ultima">Ultima</option>
+                                    <option value="Ultros">Ultros</option>
+                                    <option value="Unicorn">Unicorn</option>
+                                    <option value="Valefor">Valefor</option>
+                                    <option value="Yojimbo">Yojimbo</option>
+                                    <option value="Zalera">Zalera</option>
+                                    <option value="Zeromus">Zeromus</option>
+                                    <option value="Zodiark">Zodiark</option>
+                                </select>
+                                <input name="__RequestVerificationToken" type="hidden" value="CfDJ8K6Amb2W7wRIinOyv-LoQQrAQI4ZZRysg2Pydi__ybva-CP1lEJoNxjzPDjDAwZ2wwfZrLiRrNn56jr5ClBDLvVAqQd_JX4F_97jre5NcujbgTJVt623tljd3y_KVOFs6faBUGEVzGsw-N1Hz5iya_M"></form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5"><iframe src="https://discordapp.com/widget?id=380042624586874881&amp;theme=dark"
+                        height:="" 350="" allowtransparency="true" frameborder="0"></iframe></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-11 ">
+                    <div id="searchresultdiv" class="form-group-sm" style="margin-top:4px; font:12px ">
+                        <form method="get" action="/Coeurl?handler=Data">
+                            Filter Results Using this Drop Down Menu.
+                            <select onchange="SelectedFilterChange()" id="SelectedSearchCategory" name="SelectedSearchCategory">
+                                <option value="">No Filter</option>
+                                <option value="9">Pugilist's Arm</option>
+                                <option value="10">Gladiator's Arm</option>
+                                <option value="11">Marauder's Arm</option>
+                                <option value="12">Archer's Arm</option>
+                                <option value="13">Lancer's Arm</option>
+                                <option value="14">Thaumaturge's Arm</option>
+                                <option value="15">Conjurer's Arm</option>
+                                <option value="16">Arcanist's Grimoire</option>
+                                <option value="17">Shields</option>
+                                <option value="19">Carpenter's Tool</option>
+                                <option value="20">Blacksmith's Tool</option>
+                                <option value="21">Armorer's Tool</option>
+                                <option value="22">Goldsmith's Tool</option>
+                                <option value="23">Leatherworker's Tool</option>
+                                <option value="24">Weaver's Tool</option>
+                                <option value="25">Alchemist's Tool</option>
+                                <option value="26">Culinarian's Tool</option>
+                                <option value="27">Miner's Tool</option>
+                                <option value="28">Botanist's Tool</option>
+                                <option value="29">Fisher's Tool</option>
+                                <option value="30">Fishing Tackle</option>
+                                <option value="31">Head</option>
+                                <option value="33">Body</option>
+                                <option value="35">Legs</option>
+                                <option value="36">Hands</option>
+                                <option value="37">Feet</option>
+                                <option value="38">Waist</option>
+                                <option value="39">Necklace</option>
+                                <option value="40">Earrings</option>
+                                <option value="41">Bracelets</option>
+                                <option value="42">Rings</option>
+                                <option value="43">Medicine</option>
+                                <option value="44">Ingredients</option>
+                                <option value="45">Meals</option>
+                                <option value="46">Seafood</option>
+                                <option value="47">Stone</option>
+                                <option value="48">Metal</option>
+                                <option value="49">Lumber</option>
+                                <option value="50">Cloth</option>
+                                <option value="51">Leather</option>
+                                <option value="52">Bone</option>
+                                <option value="53">Reagents</option>
+                                <option value="54">Dyes</option>
+                                <option value="55">Weapon Parts</option>
+                                <option value="56">Furnishings</option>
+                                <option value="57">Materia</option>
+                                <option value="58">Crystals</option>
+                                <option value="59">Catalysts</option>
+                                <option value="60">Miscellany</option>
+                                <option value="65">Exterior Fixtures</option>
+                                <option value="66">Interior Fixtures</option>
+                                <option value="67">Outdoor Furnishings</option>
+                                <option value="68">Chairs and Beds</option>
+                                <option value="69">Tables</option>
+                                <option value="70">Tabletop</option>
+                                <option value="71">Wall-mounted</option>
+                                <option value="72">Rugs</option>
+                                <option value="73">Rogue's Arm</option>
+                                <option value="74">Seasonal Miscellany</option>
+                                <option value="75">Minions</option>
+                                <option value="76">Dark Knight's Arm</option>
+                                <option value="77">Machinist's Arm</option>
+                                <option value="78">Astrologian's Arm</option>
+                                <option value="79">Airship Components</option>
+                                <option value="80">Orchestrion Components</option>
+                                <option value="81">Gardening Items</option>
+                                <option value="82">Paintings</option>
+                                <option value="83">Samurai's Arm</option>
+                                <option value="84">Red Mage's Arm</option>
+                                <option value="85">Scholar's Arm</option>
+                            </select>
+                            <input id="checkBox" type="checkbox" onclick="CraftedItemsClick()"><span class="cr-icon fa fa-check">Show
+                                only crafted items. </span>
+                            <input id="checkBoxInvIntegration" type="checkbox" name="invIntegration" value="tra"
+                                onclick="checkBoxInvIntegration()">Disable Inventory Integration<br>
+                        </form>
+                    </div>
+                    <div style="margin-top:2px" id="mainTable">
+                        <div id="searchresults_wrapper" class="dataTables_wrapper no-footer">
+                            <div id="searchresults_processing" class="dataTables_processing" style="display: none;">Processing...</div>
+                            <div class="pull-left">
+                                <div id="searchresults_filter" class="dataTables_filter"><label>Search:<input type="search"
+                                            class="" placeholder="Search items" aria-controls="searchresults"></label></div>
+                            </div>
+                            <div class="pull-left">
+                                <div class="dt-buttons"> <a class="dt-button" tabindex="0" aria-controls="searchresults"
+                                        href="#"><span>Reload</span></a> <a class="dt-button buttons-copy buttons-html5"
+                                        tabindex="0" aria-controls="searchresults" href="#"><span>Copy</span></a> <a
+                                        class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="searchresults"
+                                        href="#"><span>Excel</span></a> </div>
+                            </div>
+                            <div class="dataTables_length" id="searchresults_length"><label>Show <select name="searchresults_length"
+                                        aria-controls="searchresults" class="">
+                                        <option value="10">10</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="100">100</option>
+                                    </select> entries</label></div>
+                            <div class="dataTables_processing" style="display: none;">Processing...</div>
+                            <table id="searchresults" class="table compact nowrap dataTable no-footer" role="grid"
+                                aria-describedby="searchresults_info" style="width: 1714px;">
+                                <thead>
+                                    <tr id="head" role="row">
+                                        <!-- <th class="hidden sorting" tabindex="0" aria-controls="searchresults" rowspan="1"
+                                            colspan="1" style="width: 0px;" aria-label="Real Item Key: activate to sort column ascending">Real
+                                            Item Key</th> -->
+                                        <th id="mainTableName" class="sorting" tabindex="0" aria-controls="searchresults"
+                                            rowspan="1" colspan="1" style="width: 335px;" aria-label="Name: activate to sort column ascending">Name</th>
+                                        <th title="Temporary row until I update all the statistics." class="dt-body-center dt-body-custom-padding sorting"
+                                            tabindex="0" aria-controls="searchresults" rowspan="1" colspan="1" style="width: 104px;"
+                                            aria-label="Lowest Price: activate to sort column descending">Lowest Price</th>
+                                        <th class="dt-body-center dt-body-custom-padding sorting" tabindex="0"
+                                            aria-controls="searchresults" rowspan="1" colspan="1" style="width: 134px;"
+                                            aria-label="Quantity for sale: activate to sort column descending">Quantity
+                                            for sale</th>
+                                        <th class="dt-body-center dt-body-custom-padding sorting" tabindex="0"
+                                            aria-controls="searchresults" rowspan="1" colspan="1" style="width: 89px;"
+                                            aria-label="Lowest HQ : activate to sort column descending">Lowest HQ </th>
+                                        <th class="dt-body-center dt-body-custom-padding sorting" tabindex="0"
+                                            aria-controls="searchresults" rowspan="1" colspan="1" style="width: 89px;"
+                                            aria-label="Lowest NQ: activate to sort column descending">Lowest NQ</th>
+                                        <th class="dt-body-center dt-body-custom-padding sorting" tabindex="0"
+                                            aria-controls="searchresults" rowspan="1" colspan="1" style="width: 116px;"
+                                            aria-label="7 Day Average: activate to sort column descending">7 Day
+                                            Average</th>
+                                        <th class="dt-body-center dt-body-custom-padding sorting" tabindex="0"
+                                            aria-controls="searchresults" rowspan="1" colspan="1" style="width: 75px;"
+                                            aria-label="Last Sale : activate to sort column descending">Last Sale </th>
+                                        <th class="dt-body-center dt-body-custom-padding sorting_desc" tabindex="0"
+                                            aria-controls="searchresults" rowspan="1" colspan="1" style="width: 171px;"
+                                            aria-sort="descending" aria-label="Gil Traded Last Week: activate to sort column ascending">Gil
+                                            Traded Last Week</th>
+                                        <th title="Quantity sold last week" class="dt-body-center dt-body-custom-padding sorting"
+                                            tabindex="0" aria-controls="searchresults" rowspan="1" colspan="1" style="width: 126px;"
+                                            aria-label="Sold Last Week: activate to sort column descending">Sold Last
+                                            Week</th>
+                                        <th class="dt-body-center dt-body-custom-padding sorting" tabindex="0"
+                                            aria-controls="searchresults" rowspan="1" colspan="1" style="width: 140px;"
+                                            aria-label="Average - Lowest: activate to sort column descending">Average -
+                                            Lowest</th>
+                                        <th class="dt-body-center dt-body-custom-padding sorting" tabindex="0"
+                                            aria-controls="searchresults" rowspan="1" colspan="1" style="width: 104px;"
+                                            aria-label="Updated: activate to sort column descending">Updated</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr role="row" class="odd">
+                                        <td>
+                                            <div class="ItemName">   
+                                                <div class="addList">
+                                                    <img class="iconSized fadeBorder itemIcon" src="https://ffxivmb.com/Icons/022666.png">
+                                                    Gyr Abanian Alchemic
+                                                    <img type="image" class="copy_button " src="https://ffxivmb.com/Icons/copy.png" data-clipboard-text="Gyr Abanian Alchemic">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>73,999</td>
+                                        <td><span id="quantityIntegration" quantity="79">79</span></td>
+                                        <td></td>
+                                        <td>73,999</td>
+                                        <td>64,232</td>
+                                        <td>71,000</td>
+                                        <td>30,253,406</td>
+                                        <td>471</td>
+                                        <td>-9,767</td>
+                                        <td>46 minutes ago</td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <!-- <td class=" hidden">13115</td> -->
+                                        <td>
+                                            <div class="ItemName">
+                                                
+                                                <div class="addList"><img class="iconSized fadeBorder itemIcon" src="https://ffxivmb.com/Icons/022666.png"><a
+                                                        title="Last Updated on: 5/14/2019, 2:45:12 PM" style="color:#00ff24"
+                                                        target="_blank" href="/Items/Coeurl/13115">General-purpose Jet
+                                                        Black Dye</a><input type="image" class="copy_button " src="https://ffxivmb.com/Icons/copy.png"
+                                                        data-clipboard-text="General-purpose Jet Black Dye"></div>
+                                            </div>
+                                        </td>
+                                        <td>335,000</td>
+                                        <td><span id="quantityIntegration"
+                                                quantity="70">70</span></td>
+                                        <td></td>
+                                        <td>335,000</td>
+                                        <td>335,938</td>
+                                        <td>349,900</td>
+                                        <td>28,218,837</td>
+                                        <td>84</td>
+                                        <td>938</td>
+                                        <td>2 hours ago</td>
+                                    </tr>
+                                    <tr role="row" class="odd">
+                                        <!-- <td class=" hidden">5713</td> -->
+                                        <td>
+                                            <div class="ItemName">
+                                                
+                                                <div class="addList"><img class="iconSized fadeBorder itemIcon" src="https://ffxivmb.com/Icons/022666.png"><a
+                                                        title="Last Updated on: 5/14/2019, 5:00:02 PM" style="color:#00ff24"
+                                                        target="_blank" href="/Items/Coeurl/5713">Craftsman's Command
+                                                        Materia V</a><input type="image" class="copy_button " src="https://ffxivmb.com/Icons/copy.png"
+                                                        data-clipboard-text="Craftsman's Command Materia V"></div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                        <td><span id="quantityIntegration"
+                                                quantity="0">0</span></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>31,202</td>
+                                        <td>40,000</td>
+                                        <td>24,337,744</td>
+                                        <td>780</td>
+                                        <td>31,202</td>
+                                        <td>43 minutes ago</td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <!-- <td class=" hidden">13114</td> -->
+                                        <td>
+                                            <div class="ItemName">
+                                                
+                                                <div class="addList"><img class="iconSized fadeBorder itemIcon" src="https://ffxivmb.com/Icons/022666.png"><a
+                                                        title="Last Updated on: 5/14/2019, 4:57:10 PM" style="color:#00ff24"
+                                                        target="_blank" href="/Items/Coeurl/13114">General-purpose Pure
+                                                        White Dye</a><input type="image" class="copy_button " src="https://ffxivmb.com/Icons/copy.png"
+                                                        data-clipboard-text="General-purpose Pure White Dye"></div>
+                                            </div>
+                                        </td>
+                                        <td>250,000</td>
+                                        <td><span id="quantityIntegration"
+                                                quantity="39">39</span></td>
+                                        <td></td>
+                                        <td>250,000</td>
+                                        <td>270,694</td>
+                                        <td>250,000</td>
+                                        <td>22,738,355</td>
+                                        <td>84</td>
+                                        <td>20,694</td>
+                                        <td>46 minutes ago</td>
+                                    </tr>
+                                    <tr role="row" class="odd">
+                                        <!-- <td class=" hidden">23366</td> -->
+                                        <td>
+                                            <div class="ItemName">
+                                                
+                                                <div class="addList"><img class="iconSized fadeBorder itemIcon" src="https://ffxivmb.com/Icons/022666.png"><a
+                                                        title="Last Updated on: 5/14/2019, 4:58:04 PM" style="color:#00ff24"
+                                                        target="_blank" href="/Items/Coeurl/23366">Ballroom Etiquette -
+                                                        Insufficient Petticoats</a><input type="image" class="copy_button "
+                                                        src="https://ffxivmb.com/Icons/copy.png" data-clipboard-text="Ballroom Etiquette - Insufficient Petticoats"></div>
+                                            </div>
+                                        </td>
+                                        <td>8,400,000</td>
+                                        <td><span id="quantityIntegration"
+                                                quantity="5">5</span></td>
+                                        <td></td>
+                                        <td>8,400,000</td>
+                                        <td>7,000,000</td>
+                                        <td>7,000,000</td>
+                                        <td>21,000,000</td>
+                                        <td>3</td>
+                                        <td>-1,400,000</td>
+                                        <td>45 minutes ago</td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <!-- <td class=" hidden">24816</td> -->
+                                        <td>
+                                            <div class="ItemName">
+                                                
+                                                <div class="addList"><img class="iconSized fadeBorder itemIcon" src="https://ffxivmb.com/Icons/022666.png"><a
+                                                        title="Last Updated on: 5/14/2019, 4:57:16 PM" style="color:#00ff24"
+                                                        target="_blank" href="/Items/Coeurl/24816">Damascene Cloth</a><input
+                                                        type="image" class="copy_button " src="https://ffxivmb.com/Icons/copy.png"
+                                                        data-clipboard-text="Damascene Cloth"></div>
+                                            </div>
+                                        </td>
+                                        <td>950,000</td>
+                                        <td><span id="quantityIntegration"
+                                                quantity="12">12</span></td>
+                                        <td></td>
+                                        <td>950,000</td>
+                                        <td>1,010,789</td>
+                                        <td>950,000</td>
+                                        <td>19,205,001</td>
+                                        <td>19</td>
+                                        <td>60,789</td>
+                                        <td>45 minutes ago</td>
+                                    </tr>
+                                    <tr role="row" class="odd">
+                                        <!-- <td class=" hidden">18027</td> -->
+                                        <td>
+                                            <div class="ItemName">
+                                                
+                                                <div class="addList"><img class="iconSized fadeBorder itemIcon" src="https://ffxivmb.com/Icons/022666.png"><a
+                                                        title="Last Updated on: 5/14/2019, 4:58:24 PM" style="color:#00ff24"
+                                                        target="_blank" href="/Items/Coeurl/18027">Craftsman's Command
+                                                        Materia VI</a><input type="image" class="copy_button " src="https://ffxivmb.com/Icons/copy.png"
+                                                        data-clipboard-text="Craftsman's Command Materia VI"></div>
+                                            </div>
+                                        </td>
+                                        <td>94,000</td>
+                                        <td><span id="quantityIntegration"
+                                                quantity="105">105</span></td>
+                                        <td></td>
+                                        <td>94,000</td>
+                                        <td>71,968</td>
+                                        <td>60,000</td>
+                                        <td>18,783,859</td>
+                                        <td>261</td>
+                                        <td>-22,032</td>
+                                        <td>44 minutes ago</td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <!-- <td class=" hidden">17836</td> -->
+                                        <td>
+                                            <div class="ItemName">
+                                                
+                                                <div class="addList"><img class="iconSized fadeBorder itemIcon" src="https://ffxivmb.com/Icons/022666.png"><a
+                                                        title="Last Updated on: 5/14/2019, 4:57:36 PM" style="color:#00ff24"
+                                                        target="_blank" href="/Items/Coeurl/17836">Timeworn Gazelleskin
+                                                        Map</a><input type="image" class="copy_button " src="https://ffxivmb.com/Icons/copy.png"
+                                                        data-clipboard-text="Timeworn Gazelleskin Map"></div>
+                                            </div>
+                                        </td>
+                                        <td>24,500</td>
+                                        <td><span id="quantityIntegration"
+                                                quantity="50">50</span></td>
+                                        <td></td>
+                                        <td>24,500</td>
+                                        <td>42,203</td>
+                                        <td>22,000</td>
+                                        <td>18,189,872</td>
+                                        <td>431</td>
+                                        <td>17,703</td>
+                                        <td>45 minutes ago</td>
+                                    </tr>
+                                    <tr role="row" class="odd">
+                                        <!-- <td class=" hidden">15653</td> -->
+                                        <td>
+                                            <div class="ItemName">
+                                                
+                                                <div class="addList"><img class="iconSized fadeBorder itemIcon" src="https://ffxivmb.com/Icons/022666.png"><a
+                                                        title="Last Updated on: 5/13/2019, 1:11:01 PM"
+                                                        target="_blank" href="/Items/Coeurl/15653">Nidhogg's Scale</a><input
+                                                        type="image" class="copy_button " src="https://ffxivmb.com/Icons/copy.png"
+                                                        data-clipboard-text="Nidhogg's Scale"></div>
+                                            </div>
+                                        </td>
+                                        <td>1,674,999</td>
+                                        <td><span id="quantityIntegration"
+                                                quantity="15">15</span></td>
+                                        <td></td>
+                                        <td>1,674,999</td>
+                                        <td>1,609,363</td>
+                                        <td>1,648,000</td>
+                                        <td>17,702,999</td>
+                                        <td>11</td>
+                                        <td>-65,636</td>
+                                        <td>1 day ago</td>
+                                    </tr>
+                                    <tr role="row" class="even">
+                                        <!-- <td class=" hidden">24280</td> -->
+                                        <td>
+                                            <div class="ItemName">
+                                                
+                                                <div class="addList"><img class="iconSized fadeBorder itemIcon" src="https://ffxivmb.com/Icons/022666.png"><a
+                                                        title="Last Updated on: 5/14/2019, 4:57:43 PM" style="color:#00ff24"
+                                                        target="_blank" href="/Items/Coeurl/24280">Shakshouka</a><input
+                                                        type="image" class="copy_button " src="https://ffxivmb.com/Icons/copy.png"
+                                                        data-clipboard-text="Shakshouka"></div>
+                                            </div>
+                                        </td>
+                                        <td>2,040</td>
+                                        <td><span id="quantityIntegration"
+                                                quantity="2833">2,833</span></td>
+                                        <td>4,990</td>
+                                        <td>2,040</td>
+                                        <td>4,122</td>
+                                        <td>4,990</td>
+                                        <td>17,185,318</td>
+                                        <td>4,169</td>
+                                        <td>2,082</td>
+                                        <td>45 minutes ago</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="dataTables_info whitetext" id="searchresults_info" role="status" aria-live="polite">Showing
+                                1 to 10 of 9,508 entries</div>
+                            <div class="dataTables_paginate paging_simple_numbers" id="searchresults_paginate"><a class="paginate_button previous disabled"
+                                    aria-controls="searchresults" data-dt-idx="0" tabindex="0" id="searchresults_previous">Previous</a><span><a
+                                        class="paginate_button current" aria-controls="searchresults" data-dt-idx="1"
+                                        tabindex="0">1</a><a class="paginate_button " aria-controls="searchresults"
+                                        data-dt-idx="2" tabindex="0">2</a><a class="paginate_button " aria-controls="searchresults"
+                                        data-dt-idx="3" tabindex="0">3</a><a class="paginate_button " aria-controls="searchresults"
+                                        data-dt-idx="4" tabindex="0">4</a><a class="paginate_button " aria-controls="searchresults"
+                                        data-dt-idx="5" tabindex="0">5</a><span class="ellipsis">…</span><a class="paginate_button "
+                                        aria-controls="searchresults" data-dt-idx="6" tabindex="0">951</a></span><a
+                                    class="paginate_button next" aria-controls="searchresults" data-dt-idx="7" tabindex="0"
+                                    id="searchresults_next">Next</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-lg-1">
+                    <div id="content"></div>
+                </div>
+                <div class="row">
+                    <footer id="footer" style="margin-top:15%; padding-top:0; border:0">
+                        <p style="margin:4%;font-size:medium"> The MarketSense app has been out for over a year now and
+                            we've
+                            helped make billions of gil with no problems, join the discord with any questions you might
+                            have.
+                            This Final Fantasy Market Board page is not affiliated with or owned by Square Enix or any
+                            of its
+                            affiliated companies. Some of the text (item names) are copyrighted by Square Enix and its
+                            various
+                            contributors such as Nobuo Uematsu and others who are easily found and recognizable. No
+                            copyright
+                            is claimed as to any of the content previously copyrighted by other parties, and to the
+                            extent that
+                            material may appear to be infringed, I assert that such alleged infringement is permissible
+                            under
+                            fair use principles in U.S. copyright laws. If you believe material has been used in an
+                            unauthorized manner, please contact me at the discord.</p>
+                    </footer>
+                </div>
+            </div>
+</body>
+
+</html>
